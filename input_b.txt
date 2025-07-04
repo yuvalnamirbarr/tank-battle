@@ -1,0 +1,9 @@
+Test - Many Walls
+MaxSteps = 100
+NumShells = 5
+Rows = 4
+Cols = 8
+22222222
+########
+##%#####
+11111111

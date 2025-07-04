@@ -1,0 +1,10 @@
+Test - Many Mines
+MaxSteps = 100
+NumShells = 3
+Rows = 5
+Cols = 8
+#@@@@@@#
+#@1@2@1#
+#@@@@@@#
+#@@@@@@#
+########

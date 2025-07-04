@@ -1,0 +1,43 @@
+BONUS: Visual Simulation
+
+We implemented a full visual simulation as an external utility that takes the three required text files
+(the input, the output, and a special file we created called board) and animates the game step-by-step.
+
+The visualization is implemented using Python and Streamlit, providing:
+- A simple UI to upload the 3 required files
+- Automatic rendering of the board with tank positions and orientations
+- Real-time animation showing tank movements, rotations, and kills
+- Color-coded tanks (blue/red), mines, shells, and walls
+- Directional arrows for each tank indicating its facing
+- An automatically generated GIF of the entire game
+
+The simulation is external and does not affect the logic or correctness of the main game code.
+It works with any valid set of input/output files that follow the project specifications.
+It can be easily extended to support future features (multi-player, AI behavior analysis, etc.)
+
+As we said, we added a custom method inside `GameManager.cpp` named `printBoardState()` that is called at the end of each game step from `run()`. This method:
+- Constructs a 2D grid of characters based on terrain and entity state
+- Marks walls as `#`, mines as `@`, player tanks as `1`/`2`, and shells as `*`
+- Prints each board frame to `stdout`, which is redirected to a custom file
+This was added exclusively to support the visual simulator and is not required for the official assignment functionality.
+
+to print the board text file:
+uncomment the printBoardState() function in line 777 inside `GameManager.cpp` and it's decleration in the header in line 273
+uncomment line 757 // this->inputFileNameOnly = fileNameOnly; in function initOutputLogFromInputFile() inside `GameManager.cpp`
+uncomment line 87 // std::string inputFileNameOnly; inside `GameManager.h`
+uncomment line 54 // printBoardStateToFile(); in function run() inside `GameManager.cpp`
+---
+
+To run the simulator:
+1. Install requirements (Python 3.8+):
+   pip install streamlit matplotlib pillow
+
+2. Run the app:
+   streamlit run tank_visualizer_app.py
+
+3. Upload the following 3 files when prompted:
+   - `input_x.txt`
+   - `output_x.txt`
+   - `boards_x.txt` (generated via redirected `stdout`)
+
+4. The simulator renders the animation, allows downloading the result, and works for any valid test case.

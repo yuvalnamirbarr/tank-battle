@@ -1,0 +1,11 @@
+Test Map D - Maze Walls
+MaxSteps = 80
+NumShells = 4
+Rows = 6
+Cols = 10
+##########
+#1  #    #
+### # ## #
+#   # 2  #
+# # ## ###
+##########
